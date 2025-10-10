@@ -63,7 +63,7 @@ namespace TestlibCommerciaux
                 Assert.IsNotNull(notefraisInstance, "L'instance de la classe Notefrais ne doit pas être null.");
 
                 // Vérifier dateNoteFrais
-                FieldInfo dateField = type.GetField("dateNoteFrais", BindingFlags.NonPublic | BindingFlags.Instance);
+                FieldInfo dateField = type.GetField("date", BindingFlags.NonPublic | BindingFlags.Instance);
                 Assert.IsNotNull(dateField, "Le champ 'date' n'existe pas.");
 
 
@@ -161,7 +161,7 @@ namespace TestlibCommerciaux
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Contains("Numéro :"));
             Assert.IsTrue(result.Contains("Date : 12/11/2024"));
-            Assert.IsTrue(result.Contains("Montant à rembourser:"));
+            Assert.IsTrue(result.Contains("Montant à rembourser :"));
             Assert.IsTrue(result.Contains("Non remboursé"));
         }
         [TestMethod]

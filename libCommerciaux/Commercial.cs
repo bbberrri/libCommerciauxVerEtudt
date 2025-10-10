@@ -5,48 +5,68 @@
         private string nom;
         private string prenom;
         private char categorie;
-        private int puissance;
-        private List<NoteFrais> listNoteFrais;
+        private int puissanceVoiture;
+        private List<NoteFrais> mesNotes;
         public string Nom
         {
             get { return nom; }
             set { nom = value; }
+        }
+        public string getNom()
+        {
+            return nom;
         }
         public string Prenom
         {
             get { return prenom; }
             set { prenom = value; }
         }
+        public string getPrenom()
+        {
+            return prenom;
+        }
         public char Categorie
         {
             get { return categorie; }
             set { categorie = value; }
         }
-        public int Puissance
+        public char getCategorie()
         {
-            get { return puissance; }
-            set { puissance = value; }
+            return categorie;
         }
-        public List<NoteFrais> ListNoteFrais
+        public int PuissanceVoiture
         {
-            get { return listNoteFrais; }
-            set { listNoteFrais = value; }
+            get { return puissanceVoiture; }
+            set { puissanceVoiture = value; }
         }
-        public Commercial(string Prenom, string Nom, int Puissance, char Categorie)
+        public int getPuissanceVoiture()
+        {
+            return puissanceVoiture;
+        }
+        public List<NoteFrais> MesNotes
+        {
+            get { return mesNotes; }
+            set { mesNotes = value; }
+        }
+        public List<NoteFrais> getMesNoteFrais()
+        {
+            return mesNotes;
+        }
+        public Commercial(string Nom, string Prenom, int Puissance, char Categorie)
         {
             nom = Nom;
             prenom = Prenom;
             categorie = Categorie;
-            puissance = Puissance;
-            listNoteFrais = new List<NoteFrais>();
+            puissanceVoiture = Puissance;
+            mesNotes = new List<NoteFrais>();
         }
         public void AjouterNoteFrais(NoteFrais nf)
         {
-            listNoteFrais.Add(nf);
+            mesNotes.Add(nf);
         }
         public override string ToString()
         {
-            return $"Nom : {nom} Prénom : {prenom} Puissance voiture : {puissance} Categorie : {categorie}";
+            return $"Nom : {nom} Prénom : {prenom} Puissance voiture : {puissanceVoiture} Categorie : {categorie}";
         }
     }
 }
