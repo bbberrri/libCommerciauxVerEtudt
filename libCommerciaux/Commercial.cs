@@ -52,6 +52,7 @@
         {
             return mesNotes;
         }
+
         public Commercial(string Nom, string Prenom, int Puissance, char Categorie)
         {
             nom = Nom;
@@ -60,10 +61,12 @@
             puissanceVoiture = Puissance;
             mesNotes = new List<NoteFrais>();
         }
+
         public void AjouterNoteFrais(NoteFrais nf)
         {
             mesNotes.Add(nf);
         }
+
         public override string ToString()
         {
             return $"Nom : {nom} Prénom : {prenom} Puissance voiture : {puissanceVoiture} Categorie : {categorie}";

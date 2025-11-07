@@ -6,7 +6,7 @@ namespace TestlibCommerciaux
     public class TestsEcrire
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestNbNotesFraisDansCommercial()
         {
             //Arranger
             Commercial c;
@@ -18,11 +18,11 @@ namespace TestlibCommerciaux
             f1 = new NoteFrais(new DateTime(2022, 11, 15), c);
 
             //Auditer
-            Assert.AreEqual(2, c.getMesNoteFrais().Count);
+            Assert.AreEqual(2, c.getMesNoteFrais().Count, "Le commercial n'a pas le bon nombre de notes de frais attribué");
         }
 
         [TestMethod]
-        public void nbFraisNonRemboursesTest()
+        public void TestNbFraisNonRembourses()
         {
             //Arranger
             ServiceCommercial sc = new ServiceCommercial();
@@ -43,10 +43,11 @@ namespace TestlibCommerciaux
             //Agir
             f1.setRembourse();
             f3.setRembourse();
-            f3.setRembourse();
+            f4.setRembourse();
 
             //Auditer
-            Assert.AreEqual(2, sc.nbFraisNonRembourses());
+            Assert.AreEqual(2, sc.nbFraisNonRembourses(), "La méthode nbFraisNonRembourses ne renvoie pas le bon nombre " +
+                            "de notes non remboursées");
         }
     }
 }

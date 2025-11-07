@@ -51,6 +51,7 @@ namespace libCommerciaux
         {
             return leCommercial;
         }
+
         public NoteFrais(DateTime Date, Commercial LeCommercial)
         {
             this.numero = 0;
