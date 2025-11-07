@@ -49,5 +49,20 @@ namespace TestlibCommerciaux
             Assert.AreEqual(2, sc.nbFraisNonRembourses(), "La méthode nbFraisNonRembourses ne renvoie pas le bon nombre " +
                             "de notes non remboursées");
         }
+
+        [TestMethod]
+        public void calculMontantARembourserTransportTest()
+        {
+            //Arranger
+            Commercial c;
+            NoteFrais f0;
+            c = new Commercial("Jean", "Dupond", 8, 'A');
+
+            //Agir
+            T0 = new FraisTransport(new DateTime(2022, 11, 22), c, 250);
+
+            //Auditer
+            Assert.AreEqual(50, T0.getMontantARembourser());
+        }
     }
 }
