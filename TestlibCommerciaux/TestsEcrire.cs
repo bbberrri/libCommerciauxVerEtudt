@@ -59,10 +59,10 @@ namespace TestlibCommerciaux
             c = new Commercial("Jean", "Dupond", 8, 'A');
 
             //Agir
-            T0 = new FraisTransport(new DateTime(2022, 11, 22), c, 250);
+            f0 = new FraisTransport(new DateTime(2022, 11, 22), c, 250);
 
             //Auditer
-            Assert.AreEqual(50, T0.getMontantARembourser());
+            Assert.AreEqual(50, f0.getMontantARembourser());
         }
     }
 }
