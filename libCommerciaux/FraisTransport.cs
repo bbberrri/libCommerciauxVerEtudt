@@ -40,5 +40,10 @@ namespace libCommerciaux
             }
             return total;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" {nbKm} km";
+        }
     }
 }

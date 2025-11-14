@@ -64,5 +64,35 @@ namespace TestlibCommerciaux
             //Auditer
             Assert.AreEqual(50, f0.getMontantARembourser());
         }
+
+        [TestMethod]
+        public void calculMontantARembourserMidi1Test()
+        {
+            //Arranger
+            Commercial c;
+            RepasMidi r;
+            c = new Commercial("Jean", "Dupond", 8, 'A');
+
+            //Agir
+            r = new RepasMidi(new DateTime(2022, 11, 22), c, 35);
+
+            //Auditer
+            Assert.AreEqual(25, r.calculMontantARembourser());
+        }
+
+        [TestMethod]
+        public void calculMontantARembourserMidi2Test()
+        {
+            //Arranger
+            Commercial c;
+            RepasMidi r;
+            c = new Commercial("Jean", "Dupond", 8, 'A'); 
+
+            //Agir
+            r = new RepasMidi(new DateTime(2022, 11, 22), c, 15);
+
+            //Auditer
+            Assert.AreEqual(15, r.calculMontantARembourser());
+        }
     }
 }

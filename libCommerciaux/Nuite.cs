@@ -6,27 +6,15 @@ using System.Threading.Tasks;
 
 namespace libCommerciaux
 {
-    public class Nuite
+    public class Nuite : NoteFrais
     {
-        private DateTime date;
         private double montantFacture;
-        private Commercial commercial;
         private char region;
 
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
-        }
         public double MontantFacture
         {
             get { return montantFacture; }
             set { montantFacture = value; }
-        }
-        public Commercial Commercial
-        {
-            get { return commercial; }
-            set { commercial = value; }
         }
         public char Region
         {
@@ -34,11 +22,9 @@ namespace libCommerciaux
             set { region = value; }
         }
 
-        public Nuite(DateTime Date, Commercial Commercial, double MontantFacture, char Region)
+        public Nuite(DateTime Date, Commercial Commercial, double MontantFacture, char Region) : base(Date, Commercial)
         {
-            this.date = Date;
             this.montantFacture = MontantFacture;
-            this.commercial = Commercial;
             this.region = Region;
         }
     }

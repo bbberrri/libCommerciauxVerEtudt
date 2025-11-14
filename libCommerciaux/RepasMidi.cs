@@ -7,33 +7,50 @@ using System.Windows.Markup;
 
 namespace libCommerciaux
 {
-    public class RepasMidi
+    public class RepasMidi : NoteFrais
     {
-        private DateTime date;
-        private Commercial commercial;
         private double montantFacture;
 
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
-        }
-        public Commercial Commercial
-        {
-            get { return commercial; }
-            set { commercial = value; }
-        }
-        public double Facture
+        public double MontantFacture
         {
             get { return montantFacture; }
             set { montantFacture = value; }
         }
 
-        public RepasMidi(DateTime Date, Commercial Commercial, double MontantFacture)
+        public RepasMidi(DateTime Date, Commercial LeCommercial, double MontantFacture) : base(Date, LeCommercial)
         {
-            this.date = Date;
-            this.commercial = Commercial;
             this.montantFacture = MontantFacture;
+        }
+
+        public override double calculMontantARembourser()
+        {
+            double montant;
+            char categorie = this.LeCommercial.Categorie;
+            switch (categorie)
+            {
+                case 'A':
+                    montant = 25;
+                    break;
+                case 'B':
+                    montant = 22;
+                    break;
+                case 'C':
+                    montant = 20;
+                    break;
+                default:
+                    montant = 0;
+                    break;
+            }
+            if (montantFacture < montant)
+            {
+                montant = montantFacture;
+            }
+            return montant;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" payé : {montantFacture} €";
         }
     }
 }
